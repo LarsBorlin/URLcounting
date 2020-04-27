@@ -15,7 +15,7 @@ public class URLcount {
             e.printStackTrace();
         }
 
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(urlTarget.openStream()));)
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(urlTarget.openStream())))
         {
             String inputLine;
             String[] words;
@@ -33,7 +33,15 @@ public class URLcount {
             System.out.println("Ordlängd");
             for (int i = 1; i < wordArray.length; i++)
             {
-                System.out.println("Antal ord med " + i + " bokstäver: " + wordArray[i]);
+                if (wordArray[i] != 0)
+                {
+                    if (i != 1) {
+                        System.out.println("Antal ord med " + i + " bokstäver: " + wordArray[i]);
+                    }
+                    else {
+                        System.out.println("Antal ord med " + i + " bokstav: " + wordArray[i]);
+                    }
+                }
             }
         }
         catch (IOException ex)
